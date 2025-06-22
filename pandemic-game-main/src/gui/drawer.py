@@ -1,5 +1,6 @@
 # src/gui/drawer.py
 
+import os
 import pygame
 from .config import *
 from ..doenca import Cor
@@ -12,16 +13,20 @@ class Drawer:
         self.small_font = pygame.font.SysFont(FONT_FAMILY, FONT_SIZE_SMALL)
         self.color_map = {Cor.AZUL: BLUE, Cor.AMARELO: YELLOW, Cor.PRETO: GREY, Cor.VERMELHO: RED}
 
+        # Carrega o mapa mundi
+        self.background_image = pygame.image.load(os.path.join("assets", "mapa_mundi.png")).convert()
+        self.background_image = pygame.transform.scale(self.background_image, (WORLD_WIDTH, WORLD_HEIGHT))
+
     def draw_world(self, mapa, jogadores):
         """ Desenha todos os elementos que pertencem ao mundo e devem rolar. """
-        self.world_surface.fill(BLACK) # Limpa o mundo
+        self.world_surface.blit(self.background_image, (0, 0))
         self._draw_connections(mapa)
         self._draw_cities(mapa)
         self._draw_players(jogadores)
 
-    def draw_ui(self, screen, jogador_atual, acoes_validas):
+    def draw_ui(self, screen, jogador_atual, acoes_validas, jogo):
         """ Desenha a interface do usuário (painéis, botões) que é fixa na tela. """
-        self._draw_ui_panel(screen, jogador_atual, acoes_validas)
+        self._draw_ui_panel(screen, jogador_atual, acoes_validas, jogo)
 
     def _draw_text(self, surface, text, position, font=None, color=WHITE):
         if font is None: font = self.font
@@ -72,7 +77,7 @@ class Drawer:
                 player_pos = (pos[0] - 10 + i*10, pos[1] - 10 + i*10)
                 pygame.draw.circle(self.world_surface, PLAYER_COLORS[i % len(PLAYER_COLORS)], player_pos, 8)
     
-    def _draw_ui_panel(self, screen, jogador_atual, acoes_validas):
+    def _draw_ui_panel(self, screen, jogador_atual, acoes_validas, jogo):
         panel_rect = pygame.Rect(0, SCREEN_HEIGHT - 200, SCREEN_WIDTH, 200)
         # Usamos uma superfície com alfa para transparência
         panel_surface = pygame.Surface((SCREEN_WIDTH, 200), pygame.SRCALPHA)
@@ -81,7 +86,7 @@ class Drawer:
         
         # Desenha os textos e botões sobre a tela
         self._draw_text(screen, f"Turno de: {jogador_atual.nome} ({jogador_atual.personagem.nome})", (20, SCREEN_HEIGHT - 190))
-        self._draw_text(screen, f"Ações Restantes: {jogador_atual.jogo.turno_atual.acoes_restantes}", (450, SCREEN_HEIGHT - 190))
+        self._draw_text(screen, f"Ações Restantes: {jogo.turno_atual.acoes_restantes}", (450, SCREEN_HEIGHT - 190))
         
         # Botões
         button_texts = {'treat_disease': '1. Tratar Doença', 'build_station': '2. Construir Centro', 'discover_cure': '3. Descobrir Cura', 'share_knowledge': '4. Compartilhar'}

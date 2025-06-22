@@ -102,7 +102,7 @@ class GameController:
         self.screen.blit(self.world_surface, (0, 0), camera_rect)
 
         # 4. O Drawer desenha a UI (que não se move) DIRETAMENTE na TELA
-        self.drawer.draw_ui(self.screen, jogador_atual, self.acoes_validas)
+        self.drawer.draw_ui(self.screen, jogador_atual, self.acoes_validas, self.jogo)
         
         # 5. Atualiza a tela para mostrar o resultado
         pygame.display.flip()

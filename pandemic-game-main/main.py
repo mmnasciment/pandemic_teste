@@ -1,6 +1,6 @@
 # main.py
 
-from src.gui.controller import GameController
+from src.gui.game_controller import GameController
 
 def get_player_count():
     """ Pede e valida o número de jogadores no terminal. """

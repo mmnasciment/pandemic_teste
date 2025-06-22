@@ -9,8 +9,8 @@ FPS = 60
 TITLE = "Pandemic - Navegação com Câmera"
 
 # --- Configurações do Mapa (o "Mundo" completo) ---
-WORLD_WIDTH = 2400
-WORLD_HEIGHT = 1600
+WORLD_WIDTH = 3000
+WORLD_HEIGHT = 1800
 
 # --- Controles ---
 SCROLL_SPEED = 15 # Velocidade da rolagem do mapa com as setas
@@ -31,8 +31,8 @@ ACTION_BUTTONS_POS = {
 
 # --- Posições das Cidades (coordenadas no MUNDO de 2400x1600) ---
 CITY_POSITIONS = {
-    "São Francisco": (180, 450), "Chicago": (400, 380), "Montreal": (580, 350), "Nova Iorque": (700, 400), "Atlanta": (450, 480), "Washington": (600, 460), "Londres": (1000, 350), "Madri": (980, 450), "Paris": (1080, 410),
-    "Los Angeles": (250, 550), "Cidade do México": (400, 650), "Miami": (550, 600), "Bogotá": (600, 750), "Lima": (550, 850), "São Paulo": (700, 950), "Lagos": (1100, 780), "Kinshasa": (1200, 850), "Joanesburgo": (1250, 1050),
+    "São Francisco": (300, 475), "Chicago": (550, 450), "Montreal": (650, 450), "Nova Iorque": (650, 500), "Atlanta": (525, 600), "Washington": (625, 525), "Londres": (1265, 350), "Madri": (1250, 515), "Paris": (1300, 425),
+    "Los Angeles": (300, 550), "Cidade do México": (400, 800), "Miami": (575, 700), "Bogotá": (600, 1000), "Lima": (600, 1200), "São Paulo": (850, 1350), "Lagos": (1325, 950), "Kinshasa": (1425, 1125), "Joanesburgo": (1500, 1450),
     "Argel": (1100, 550), "Istambul": (1250, 500), "Cairo": (1200, 580), "Moscou": (1350, 430), "Bagdá": (1380, 560), "Riad": (1350, 680), "Teerã": (1480, 510), "Karachi": (1500, 600),
     "Pequim": (1750, 450), "Xangai": (1780, 530), "Hong Kong": (1800, 650), "Tóquio": (2000, 480), "Osaka": (2010, 560), "Bangkok": (1650, 700), "Jacarta": (1680, 850), "Sydney": (1950, 1100),
 }

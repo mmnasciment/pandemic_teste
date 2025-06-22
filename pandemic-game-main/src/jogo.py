@@ -63,7 +63,7 @@ class Jogo:
             ("Los Angeles", "Cidade do México"), ("Los Angeles", "Sydney"), 
             ("Cidade do México", "Lima"), ("Cidade do México", "Bogotá"), 
             ("Bogotá", "São Paulo"), ("Bogotá", "Lima"), 
-            ("São Paulo", "Lagos"), ("São Paulo", "Madri"), 
+            ("São Paulo", "Lagos"), ("São Paulo", "Madri"), ("São Paulo", "Joanesburgo"),
             ("Londres", "Paris"), ("Londres", "Madri"), 
             ("Madri", "Argel"), 
             ("Paris", "Argel"), ("Paris", "Istambul"), 
@@ -78,6 +78,8 @@ class Jogo:
             ("Xangai", "Pequim"), ("Xangai", "Hong Kong"), 
             ("Hong Kong", "Bangkok"), ("Hong Kong", "Jacarta"), 
             ("Sydney", "Jacarta"),
+            ("Lagos", "Kinshasa"),
+            ("Kinshasa", "Joanesburgo"),
             # --- NOVAS CONEXÕES ESTRATÉGICAS ---
             ("Bangkok", "Karachi"),     # Conecta a região Vermelha com a Preta
             ("Hong Kong", "Pequim"),     # Uma rota interna importante na China
