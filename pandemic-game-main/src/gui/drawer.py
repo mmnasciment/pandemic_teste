@@ -60,7 +60,7 @@ class Drawer:
             pos = CITY_POSITIONS.get(name)
             if pos:
                 pygame.draw.circle(self.world_surface, self.color_map[city_obj.cor], pos, 15)
-                self._draw_text(self.world_surface, name, (pos[0] + 20, pos[1] - 10), font=self.small_font)
+                self._draw_text(self.world_surface, name, (pos[0] + 20, pos[1] - 10), font=self.small_font, color=BLUE)
                 if city_obj.centro_pesquisa:
                     pygame.draw.rect(self.world_surface, WHITE, (pos[0]-7, pos[1]-7, 14, 14), 3)
                 cube_offset_x, cube_offset_y = 0, 20
