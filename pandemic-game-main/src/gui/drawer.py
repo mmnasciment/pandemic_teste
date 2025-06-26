@@ -43,14 +43,32 @@ class Drawer:
                     end_pos = CITY_POSITIONS[vizinho.nome]
                     # Lógica da Parábola
                     if connection == ("São Francisco", "Tóquio"):
-                        points = []; curve_height = 200; num_segments = 30
+                        points = []; curve_height = 310; num_segments = 30
                         for i in range(num_segments + 1):
                             t = i / num_segments
                             x = start_pos[0] * (1 - t) + end_pos[0] * t
                             y = start_pos[1] * (1 - t) + end_pos[1] * t
                             y -= curve_height * 4 * (t - t**2)
                             points.append((x, y))
-                        pygame.draw.lines(self.world_surface, GREY, False, points, 2)
+                        pygame.draw.lines(self.world_surface, RED, False, points, 2)
+                    elif connection == ("Manila", "São Francisco"):
+                        points = []; curve_height = 300; num_segments = 30
+                        for i in range(num_segments + 1):
+                            t = i / num_segments
+                            x = start_pos[0] * (1 - t) + end_pos[0] * t
+                            y = start_pos[1] * (1 - t) + end_pos[1] * t
+                            y -= curve_height * 4 * (t - t**2)
+                            points.append((x, y))
+                        pygame.draw.lines(self.world_surface, RED, False, points, 2)
+                    elif  connection == ("Los Angeles", "Sydney"):
+                        points = []; curve_height = 150; num_segments = 30
+                        for i in range(num_segments + 1):
+                            t = i / num_segments
+                            x = start_pos[0] * (1 - t) + end_pos[0] * t
+                            y = start_pos[1] * (1 - t) + end_pos[1] * t
+                            y -= curve_height * 4 * (t - t**2)
+                            points.append((x, y))
+                        pygame.draw.lines(self.world_surface, RED, False, points, 2)
                     else:
                         pygame.draw.line(self.world_surface, GREY, start_pos, end_pos, 2)
                     drawn_connections.add(connection)
