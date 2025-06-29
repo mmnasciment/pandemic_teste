@@ -4,6 +4,7 @@ import os
 import pygame
 from .config import *
 from ..doenca import Cor
+from ..carta import CartaCidade
 
 class Drawer:
     def __init__(self, world_surface):
@@ -94,7 +95,7 @@ class Drawer:
                 pos = CITY_POSITIONS[jogador.cidade_atual.nome]
                 player_pos = (pos[0] - 10 + i*10, pos[1] - 10 + i*10)
                 pygame.draw.circle(self.world_surface, PLAYER_COLORS[i % len(PLAYER_COLORS)], player_pos, 8)
-    
+
     def _draw_ui_panel(self, screen, jogador_atual, acoes_validas, jogo):
         panel_rect = pygame.Rect(0, SCREEN_HEIGHT - 200, SCREEN_WIDTH, 200)
         # Usamos uma superfície com alfa para transparência
@@ -116,8 +117,17 @@ class Drawer:
         # Mão
         self._draw_text(screen, "Mão:", (20, SCREEN_HEIGHT - 55))
         card_offset = 70
+        
+        # --- 2. LÓGICA DE DESENHO DAS CARTAS MODIFICADA ---
         for card in jogador_atual.mao:
-            self._draw_text(screen, card.nome, (card_offset, SCREEN_HEIGHT - 30), font=self.small_font)
+            text_color = WHITE  # Cor padrão para cartas de evento, etc.
+
+            # Se a carta for uma CartaCidade, pegue sua cor do mapa de cores
+            if isinstance(card, CartaCidade):
+                text_color = self.color_map.get(card.cor, WHITE) # Usa o .get() para segurança
+
+            # Desenha o nome da carta usando a cor que acabamos de definir
+            self._draw_text(screen, card.nome, (card_offset, SCREEN_HEIGHT - 30), font=self.small_font, color=text_color)
             card_offset += 140
 
         # Botão Finalizar
